@@ -22,10 +22,13 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo 'Deploying...'
-                sh 'git branch'
-                sh 'git checkout dev'
-                sh 'git merge origin/main'
-                sh 'git push origin'
+            }
+        }
+        stage('Merge') { 
+            steps {
+                withCredentials([gitUsernamePassword(credentialsId: 'github_test_token', gitToolName: 'Default')]) {
+                    sh "git merge origin/main"
+                }
             }
         }
     }
