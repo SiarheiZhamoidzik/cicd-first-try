@@ -29,6 +29,7 @@ pipeline {
                 withCredentials([gitUsernamePassword(credentialsId: 'github_test_token', gitToolName: 'Default')]) {
                     sh 'git checkout dev'
                     sh 'git merge origin/main'
+                    sh 'git remote add origin https://github.com/SiarheiZhamoidzik/cicd-first-try'
                     sh 'git push origin/main'
                 }
             }
