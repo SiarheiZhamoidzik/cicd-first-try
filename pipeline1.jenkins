@@ -21,7 +21,8 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo 'Deploying...'
-                sh 'git status'
+                sh 'git branch'
+                sh 'git branch --show-current'
             }
         }
     }
