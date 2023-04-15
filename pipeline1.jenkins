@@ -30,7 +30,7 @@ pipeline {
                     sh 'git checkout dev'
                     sh 'git pull'
                     sh 'git merge origin/main'
-                    sh 'git push -u origin main'
+                    sh 'git push'
                 }
             }
         }
