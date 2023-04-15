@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'git branch'
-                sh 'git branch --show-current'
+                sh 'git checkout dev'
             }
         }
     }
