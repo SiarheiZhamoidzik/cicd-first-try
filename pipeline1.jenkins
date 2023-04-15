@@ -23,6 +23,7 @@ pipeline {
                 echo 'Deploying...'
                 sh 'git branch'
                 sh 'git checkout dev'
+                sh 'git merge main'
             }
         }
     }
