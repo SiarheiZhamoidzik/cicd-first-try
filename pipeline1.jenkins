@@ -27,7 +27,9 @@ pipeline {
         stage('Merge') { 
             steps {
                 withCredentials([gitUsernamePassword(credentialsId: 'github_test_token', gitToolName: 'Default')]) {
-                    sh "git merge origin/main"
+                    sh 'git checkout dev'
+                    sh 'git merge origin/main'
+                    sh 'git push origin/main'
                 }
             }
         }
