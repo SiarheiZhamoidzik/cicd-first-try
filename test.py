@@ -14,3 +14,8 @@ pymssql_database = 'AdventureWorks2019'
     
 cnx = pymssql.connect(server=pymssql_server, user=pymssql_user,
                       password=pymssql_password, database=pymssql_database)
+                      
+cursor = cnx.cursor()
+sql = f"select top 10 * from Production.UnitMeasure"
+cursor.execute(sql)
+print([column for column in cursor.description])
