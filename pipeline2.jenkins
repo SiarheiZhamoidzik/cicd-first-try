@@ -24,10 +24,10 @@ pipeline {
             steps {
                 echo 'Testing...'
                 sh 'ls -la'
-                dir('autotests')
-                sh 'ls -la'
-                sh 'python3 test.py'
-                sh 'cd ..'
+                dir('autotests') {
+                    sh 'ls -la'
+                    sh 'python3 test.py'
+                }
                 sh 'ls -la'
             }
         }
