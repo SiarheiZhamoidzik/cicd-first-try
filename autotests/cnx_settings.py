@@ -15,7 +15,7 @@ connection_params = db_conn_driver + server + database + trusted_Connection
 
 
 # DB CONNECTION pymssql
-pymssql_server = 'localhost'
+pymssql_server = 'host.docker.internal'
 pymssql_user = 'auto_test'
 pymssql_password = 'auto_test'
 pymssql_database = 'AdventureWorks2019'
