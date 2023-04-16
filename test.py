@@ -5,6 +5,8 @@
     
 # DB CONNECTION pymssql
 
+import pymssql
+
 pymssql_server = 'localhost'
 pymssql_user = 'auto_test'
 pymssql_password = 'auto_test'
