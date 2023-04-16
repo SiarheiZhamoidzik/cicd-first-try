@@ -23,7 +23,9 @@ pipeline {
         stage('Test') { 
             steps {
                 echo 'Testing...'
-                sh 'python3 /autotests/test.py'
+                sh 'cd autotests'
+                sh 'python3 test.py'
+                sh 'cd ..'
             }
         }
         stage('Deploy') { 
