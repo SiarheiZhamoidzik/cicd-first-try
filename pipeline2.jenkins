@@ -13,6 +13,12 @@ pipeline {
                 sh("dir ${JENKINS_HOME}") 
             }
         }
+        stage('Install libraries') { 
+            steps {
+                echo 'Installing...'
+                sh 'pip install -r requirements.txt'
+            }
+        }
         stage('Test') { 
             steps {
                 echo 'Testing...'
