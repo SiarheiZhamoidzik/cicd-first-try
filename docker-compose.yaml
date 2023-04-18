@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+
+  jenkins:
+    build:
+      context: .
+      dockerfile: "./Dockerfile"
+    image: jenkins-latest
+    container_name: jenkins-latest
+    ports:
+        - "8080:8080"
+        - "1433:1433"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./fs/var/jenkins_home:/var/jenkins_home

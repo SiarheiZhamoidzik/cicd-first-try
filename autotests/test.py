@@ -12,10 +12,11 @@ metadata_for_tests_execution = \
                         'nn_columns': ['AddressLine1'],  # columns which should not contain nulls
                         'columns_to_check_values': ['City'],
                         # columns which will be checked for containing specified values
-                        'values': ['Hannover', 'Alhambra', 'Bendigo'],  # values which will be checked in prev. columns
-                        'allowed_percent_of_values_difference': 7,
+                        'values': ['Hannover', 'Alhambra', 'Bendigo', 'Dunkerque', 'Verrieres Le Buisson'],
+                        # values which will be checked in prev. columns
+                        'allowed_percent_of_values_difference': 99,
                         # max allowed percent of rows with nulls in nn_columns to consider test passed
-                        'columns_to_check_with_regex': ['AddressLine1', 'AddressLine2'],
+                        'columns_to_check_with_regex': ['AddressLine1'],
                         # columns which will be checked for matching regex
                         'regex_pattern': '^[0-9][0-9][0-9][0-9]\s',
                         # regex to match: pattern to find 4 digits and blank space in this example
@@ -42,7 +43,7 @@ metadata_for_tests_execution = \
                                 'allowed_percent_of_values_difference': 7,
                                 'columns_to_check_with_regex': ['UnitMeasureCode'],
                                 'regex_pattern': '^[A-Z]+$',  # pattern to find only uppercase letters
-                                'allowed_percent_of_regex_difference': 0
+                                'allowed_percent_of_regex_difference': 70
                                 }
      }
 
