@@ -1,6 +1,6 @@
 Hello user!
 
-This is Pytest training project.
+This is Pytest tests for CI/CD for DQE training project.
 
 Project Description
 Current project allows executing of 6 test types for tables in AdventureWorks2019 DB from Microsoft SQL Server.
@@ -38,18 +38,6 @@ Utils.py - file with functions which are used in pytest tests and connection to 
 cnx_settings.py - connection settings for connection to DB
 
 How to run tests:
-1. All libraries from requirements.txt should be installed
-2. Set connection settings in file cnx_settings.py. By default, setting are set for Windows authentication
-3. Check tests metadata in file test.py. In dictionary metadata_for_tests_execution we could see metadata for test 
-execution for each table. There is a description of parameters for the first table in this file. All 6 tests are 
-executed for all 3 tables, but it is possible to execute specific tables be changing @pytest.mark.parametrize parameters.
-4. Execute bat file run_tests.bat
-5. Check results in console and in report.html
-Note: there should be 6 failures of tests (one per each test type) just for demonstration 
-
-Known issues:
-- Poor logging and test results description in report and in console. 
-Didn't manage to understand how to do it better with pytest.
-- Not very convenient way of choosing tables for testing in @pytest.mark.parametrize section.
-- Maybe not very meaningful tests. But it is mainly because of absence of requirements. So the most typical checks are
-implemented
+1. Configuration connection to the Database from the container in accordance with instruction from HW
+2. Set user and password in file cnx_settings.py for AdventureWorks2019 DB in Host machine. This DB is used for tests.
+3. Tests will be executed during execution of Jenkins pipeline
