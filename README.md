@@ -46,6 +46,11 @@ For that we can do the following:
     - open file Metadata.xlsx in folder /autotest/metadata/
     - for example change name of any column. It should be done to make test fail
     - add, commit changes and push branch to remote repo
+    - create PR to DEV branch 
+    Expected result:
+        - pipeline should be automatically triggered in 1 min
+        - test should be failed
+        - code should not be merged to DEV and RELEASE branches
 
 
 
