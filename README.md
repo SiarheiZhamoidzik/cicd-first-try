@@ -40,7 +40,12 @@ How to use:
         - tests are passed
         - DEV branch is merged to RELEASE and MAIN branches
 
-If pipeline trigger was set properly then it is expected that when user add any changes to dev branch (with PR from any feature branch, for example), then in 1 minute pipeline should be executed automatically
+If pipeline trigger was set properly then it is expected that when user add any changes to dev branch (with PR from any feature branch, for example), then in 1 minute pipeline should be executed automatically.
+For that we can do the following:
+    - create new local branch based on DEV branch
+    - open file Metadata.xlsx in folder /autotest/metadata/
+    - for example change name of any column. It should be done to make test fail
+    - add, commit changes and push branch to remote repo
 
 
 
