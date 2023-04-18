@@ -22,9 +22,10 @@ Project structure:
 
 How to use:
 - Clone repository to local folder
-- open command line in root folder /cicd-first-try
+- copy files docker-compose.yaml and Dockerfile to some other folder where docker volume will be stored 
+- open command line in this folder 
 - run command "docker-compose up" to execute docker-compose file and create docker container
-- open http://localhost:8080/ to set Jenkins
+- open http://localhost:8080/ to setup Jenkins
 - create Jenkins Pipeline:
     - "Build Triggers" should be set: choose Poll SCM and set schedule like '* * * * *'
     - "Definition" = 'Pipeline script from SCM', Repository URL = 'https://github.com/SiarheiZhamoidzik/cicd-first-try'
