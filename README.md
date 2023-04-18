@@ -28,30 +28,33 @@ How to use:
 - open http://localhost:8080/ to setup Jenkins
 - create Jenkins Pipeline:
     - "Build Triggers" should be set: choose Poll SCM and set schedule like '* * * * *'
-    - "Definition" = 'Pipeline script from SCM', Repository URL = 'https://github.com/SiarheiZhamoidzik/cicd-first-try'
+    - "Definition" = 'Pipeline script from SCM', "Repository URL" = 'https://github.com/SiarheiZhamoidzik/cicd-first-try'
     - on GitHub create personal access token (classic) in accordance with https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token (it will be used for mergeing branches and pushing it into remote repository)
     - add personal access token to Jenkins in Manage Jenkins > Manage Credentials > System > Global credentials > Add credentials
     - use this credential in the field "Credentials" in Jenkins pipeline settings and put the name of the credention into the pipeline.jenkins file like "withCredentials([gitUsernamePassword(credentialsId: 'github_test_token', gitToolName: 'Default')])"
     - set "Branch Specifier (blank for 'any')" = '*/dev'
     - set "Script Path" = pipeline.jenkins
-- Configuration connection to the Database from the container in accordance with instruction from HW
+- Configure connection to the Database from the container in accordance with instruction from HW
 - Set user and password in file cnx_settings.py
 - Run Jenkins pipeline. 
     Expected result: 
         - tests are passed
         - DEV branch is merged to RELEASE and MAIN branches
 
-If pipeline trigger was set properly then it is expected that when user add any changes to dev branch (with PR from any feature branch, for example), then in 1 minute pipeline should be executed automatically.
+If pipeline trigger was set properly then it is expected that when user add any changes to remote DEV branch, then in 1 minute pipeline should be executed automatically.
 For that we can do the following:
-    - create new local branch based on DEV branch
+    - checkout to DEV branch
     - open file Metadata.xlsx in folder /autotest/metadata/
-    - for example change name of any column. It should be done to make test fail
-    - add, commit changes and push branch to remote repo
-    - create PR to DEV branch 
+    - for example change name of any column. In this case test will fail, because metadata will not mach actula column name
+    - add, commit changes and push it to remote repo
     Expected result:
         - pipeline should be automatically triggered in 1 min
         - test should be failed
         - code should not be merged to DEV and RELEASE branches
+
+Known issues:
+- after PR from feature branch to dev branch local repository in docker may not be updated (despite the fact that if we will open repo in docker and will make git pull manually it will be set that everything is up to date).
+For now working approach is to make push from local DEV branch to remote DEV branch. Merging from FEATURE branch to DEV should be done locally.
 
 
 
