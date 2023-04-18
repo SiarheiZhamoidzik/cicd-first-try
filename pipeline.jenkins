@@ -6,8 +6,6 @@ pipeline {
                 echo 'Building...'
                 sh 'git checkout dev'
                 sh 'git pull'
-                sh 'git branch'
-                sh 'git status'
                 echo "Running ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} on ${env.NODE_NAME} and JOB ${env.JOB_NAME}"
             }
         }
@@ -19,13 +17,11 @@ pipeline {
         stage('Test') { 
             steps {
                 echo 'Testing...'
-                sh 'ls -la'
                 dir('autotests') {
                     sh 'ls -la'
                     sh 'pip install -r requirements.txt'
                     sh 'python3 -m pytest test.py --html=report.html'
                 }
-                sh 'ls -la'
             }
         }
         stage('Deploy') { 
