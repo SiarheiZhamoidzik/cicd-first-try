@@ -55,7 +55,3 @@ For that we can do the following:
 Known issues:
 - after PR from feature branch to dev branch local repository in docker may not be updated (despite the fact that if we will open repo in docker and will make git pull manually it will be set that everything is up to date).
 For now working approach is to make push from local DEV branch to remote DEV branch. Merging from FEATURE branch to DEV should be done locally.
-
-
-
-
